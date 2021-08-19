@@ -1,42 +1,38 @@
-# Holberton School System Engineering & DevOps Track
+File 0-iam_betty creates a script that changes your user ID to betty.
 
-## Description
-At Holberton School, we learn by doing. We have projects everyday that we have to push on GitHub in order for an automatic review to be done.
-This repository contains directories each corresponding to a system engineering or DevOps project.
-These projects are part of the Holberton School year 1 curriculum.
-In these projects, we cover everything from the basics of the Linux Shell, Bash commands, Bash scripting, networking, APIs, and web-stack debugging to more advanced topics.
+File 1-who_am_i creates a script that prints the effective userid of the current user.
 
-## Table of contents
-Directories | Description
------------ | -----------
-[0x00-shell_basics](./0x00-shell_basics) | Introduction to the basics of the Linux Shell
-[0x01-shell_permissions](./0x01-shell_permissions) | Introduction to Shell permissions and the file system
-[0x02-shell_redirections](./0x02-shell_redirections) | Introduction to Shell redirections
-[0x03-shell_variables_expansions](./0x03-shell_variables_expansion) | Introduction to Shell variable expansions
-[0x04-loops_conditions_and_parsing](./0x04-loops_conditions_and_parsing) | Introduction to Bash scripting with loops and conditions
-[0x05-processes_and_signals](./0x05-processes_and_signals) | Introduction to processes and signals in the Shell
-[0x06-regular_expressions](./0x06-regular_expressions) | Introduction to regular expressions in Ruby
-[0x07-networking_basics](./0x07-networking_basics) | Introduction to networking
-[0x08-networking_basics_2](./0x08-networking_basics_2) | Advanced networking
-[0x09-web_infrastructure_design](./0x09-web_infrastructure_design) | Diagrams illustrating a Web Infrastructure (LAMP)
-[0x0A-configuration_management](./0x0A-configuration_management) | Introduction to configuration management with Puppet
-[0x0B-ssh](./0x0B-ssh) | Managing our own servers, and sshing into it
-[0x0C-web_server](./0x0C-web_server) | Introduction to web servers and installing Nginx on our servers
-[0x0D-web_stack_debugging_0](./0x0D-web_stack_debugging_0) | Introduction to web stack debugging
-[0x0E-web_stack_debugging_1](./0x0E-web_stack_debugging_1) | Advanced web stack debugging
-[0x0F-load_balancer](./0x0F-load_balancer) | Introduction to load-balancing and installing HAProxy on our own servers
-[0x10-https_ssl](./0x10-https_ssl) | Introduction to HTTPS, SSL and getting our own SSL certificate for our servers
-[0x11-what_happens_when_your_type_holbertonschool_com_in_your_browser_and_press_enter](./0x11-what_happens_when_your_type_holbertonschool_com_in_your_browser_and_press_enter) | Blog post explaining a web infrastructure
-[0x12-web_stack_debugging_2](./0x12-web_stack_debugging_2) | More advanced web stack debugging
-[0x13-firewall](./0x13-firewall) | Introduction to firewalls and setting up of a firewall on our own servers
-[0x14-mysql](./0x14-mysql) | Introduction to Database clusters and setting up a Primary-Replica MySQL cluster on our own servers
-[0x15-api](./0x15-api) | Querying an API and exporting data to JSON or CSV format
-[0x16-api_advanced](./0x16-api_advanced) | Advanced API queries, recursive requests
+File 2-groups creates a script that prints all the groups the current user is part of.
 
-## Author
+File 3-new_owner creates a script that changes the owner of the file hello to the user betty.
 
-Laura Roudge - Cohort 8
+File 4-empty creates a script that creates an empty file called hello.
 
-email: laura.derohan@gmail.com
+File 5-execute creates a script that adds execute permission to the owner of the file hello.
 
-Twitter: https://twitter.com/LRoudge
+File 6-multiple_permissions creates a script that adds execute permission to the owner and the group owner, and read permission to other users, to the file hello.
+
+File 7-everybody creates a script that adds execution permission to the owner, the group owner and the other users, to the file hello
+
+File 8-James_Bond creates a script that sets the permission to the file hello as follows:
+Owner: no permission at all, Group: no permission at all, Other users: all the permissions
+
+File 9-John_Doe creates a script that sets the mode of the file hello to -rwxr-x-wx.
+
+File 10-mirror_permissions creates a script that sets the mode of the file hello the same as olleh’s mode.
+
+File 11-directories_permissions creates a script that adds execute permission to all subdirectories of the current directory for the owner, the group owner and all other users.
+
+File 12-directory_permissions creates a script that creates a directory called dir_holberton with permissions 751 in the working directory.
+
+File 13-change_group creates a script that changes the group owner to holberton for the file hello.
+
+File 14-change_owner_and_group creates a script that changes the owner to betty and the group owner to holberton for all the files and directories in the working directory.
+
+File 15-symbolic_link_permissions creates a script that changes the owner and the group owner of the file _hello to betty and holberton respectively.
+
+File 16-if_only creates a script that changes the owner of the file hello to betty only if it is owned by the user guillaume.
+
+File 100-Star_Wars creates a script that will play the StarWars IV episode in the terminal.
+
+File 101-man_holberton creates a Holberton man page.
