@@ -6,4 +6,3 @@ do
 	echo "Best School"
 	let i=i+1
 done
-
