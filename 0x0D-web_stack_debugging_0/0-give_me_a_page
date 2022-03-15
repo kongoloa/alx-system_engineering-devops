@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# get Apache to run on container and return a page containing Hello Holberton when querying the root of it
+echo "Hello Holberton" >> /etc/apache2.conf
+sudo service apache2 start
