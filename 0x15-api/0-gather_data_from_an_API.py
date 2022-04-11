@@ -1,22 +1,30 @@
 #!/usr/bin/python3
-"""
-Summarize an employee's TODO list progress
-"""
-from argparse import ArgumentParser
-from os import path
-from requests import get
-from sys import argv
+"""For a given employee ID, returns information about
+their TODO list progress"""
 
-API = 'https://jsonplaceholder.typicode.com'
+import requests
+import sys
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
-    parser = ArgumentParser(prog=path.basename(argv[0]))
-    parser.add_argument('id', type=int, help='employee ID')
-    args = parser.parse_args()
-    user = get('/'.join([API, 'users', str(args.id)])).json()
-    todo = get('/'.join([API, 'todos']), params={'userId': args.id}).json()
-    completed = [task for task in todo if task['completed'] is True]
-    print('Employee {} is done with tasks({}/{}):'.format(
-        user['name'], len(completed), len(todo)))
-    print('\n'.join('\t {}'.format(task['title']) for task in completed))
+    userId = sys.argv[1]
+    user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
+                        .format(userId))
+
+    name = user.json().get('name')
+
+    todos = requests.get('https://jsonplaceholder.typicode.com/todos')
+    totalTasks = 0
+    completed = 0
+
+    for task in todos.json():
+        if task.get('userId') == int(userId):
+            totalTasks += 1
+            if task.get('completed'):
+                completed += 1
+
+    print('Employee {} is done with tasks({}/{}):'
+          .format(name, completed, totalTasks))
+
+    print('\n'.join(["\t " + task.get('title') for task in todos.json()
+          if task.get('userId') == int(userId) and task.get('completed')]))
