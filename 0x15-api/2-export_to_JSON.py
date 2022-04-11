@@ -1,24 +1,24 @@
 #!/usr/bin/python3
-import json
-import requests
+""" accessing a url with employee ID to return information """
+from argparse import ArgumentParser
+from os import path
+from json import dump
+from requests import get
 from sys import argv
-""" access a url with employee ID to return information """
 
-if __name__ == "__main__":
-    ID = argv[1]
-    user = requests.get("https://jsonplaceholder.typicode.com/users/{}".
-                        format(ID), verify=False).json()
-    todo = requests.get("https://jsonplaceholder.typicode.com/todos?ID={}".
-                        format(ID), verify=False).json()
-    username = user.get('username')
-    tasks = []
-    for task in todo:
-        task_dict = {}
-        task_dict["task"] = task.get('title')
-        task_dict["completed"] = task.get('completed')
-        task_dict["username"] = username
-        tasks.append(task_dict)
-    json_file = {}
-    json_file[ID] = tasks
-    with open("{}.json".format(ID), 'w') as jsfile:
-        json.dump(json_file, jsfile)
+USERS = 'https://jsonplaceholder.typicode.com/users'
+TODOS = 'https://jsonplaceholder.typicode.com/todos'
+
+if __name__ == '__main__':
+    parser = ArgumentParser(prog=path.basename(argv[0]))
+    parser.add_argument('id', type=int, help='employee ID')
+    args = parser.parse_args()
+    user = get('/'.join([USERS, str(args.id)])).json()
+    with open('.'.join([str(args.id), 'json']), 'w') as ostream:
+        dump({
+            str(args.id): [{
+                "task": task['title'],
+                "completed": task['completed'],
+                "username": user['username'],
+            } for task in get(TODOS, params={'userId': args.id}).json()]
+        }, ostream)
